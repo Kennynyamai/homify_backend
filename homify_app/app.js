@@ -8,6 +8,10 @@ const auth = require('./controllers/auth')
 const authRoutes = require('./routes/auth.routes');
 const userRoutes = require("./controllers/user.routes")
 
+const cors = require('cors');
+app.use(cors());
+
+
 app.use(bodyParser.json())
 app.use(
   bodyParser.urlencoded({
@@ -23,6 +27,6 @@ app.get('/', (req, res) => {
   res.send("Homify baby")
 })
 
-app.listen(3000, () => {
-  console.log("serving on port 3000")
-})
+app.listen(3000, '0.0.0.0', () => {
+  console.log('Server running on port 3000');
+});
