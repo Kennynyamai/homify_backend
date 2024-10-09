@@ -1,7 +1,7 @@
-const Pool  = require('pg').Pool
+const Pool = require('pg').Pool
 
 const pool = new Pool({
-    host: "localhost",
+    host: "20.164.19.124",
     user: "postgres",
     port: 5432,
     password: "beasty",
@@ -9,9 +9,9 @@ const pool = new Pool({
 })
 
 const getOwners = (request, response) => {
-    pool.query('SELECT * FROM apartment_owner', (error, results)=>{
-        if(error){
-            throw(error)
+    pool.query('SELECT * FROM apartment_owner', (error, results) => {
+        if (error) {
+            throw (error)
         }
         response.status(200).json(results.rows)
     })
@@ -21,6 +21,6 @@ const getOwners = (request, response) => {
 
 
 module.exports = {
-    getOwners, 
+    getOwners,
     pool,
 }
